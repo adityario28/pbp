@@ -18,7 +18,7 @@ session_start();
     <br><br><br><br><br><br>
     <center>
         <div class="column is-two-thirds mt-6 main">
-            <form action="proses.php" method="post">
+            <form action="hasil.php" method="post">
             <div class="columns ">
             <h1 class="column is-10 title has-text-left">Selamat Datang, <?php echo $_SESSION["nama"]?></h1>
             <div class="column is-3 ">
@@ -27,6 +27,7 @@ session_start();
                 </button>
             </div>
             </div>
+            <p class="title is-5 has-text-left mb-1">Silahkan pilih mata kuliah : </p>
                 <table class="table is-hoverable is-fullwidth ">
                     <thead>
                         <tr class="is-selected">
@@ -76,8 +77,4 @@ session_start();
 </body>
 </html>
 
-<?php
-    
-    
 
-?>

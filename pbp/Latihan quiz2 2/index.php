@@ -18,7 +18,7 @@
     <br><br><br><br><br><br><br><br>
     
     <div class="card px-6 py-6 mt-6 column is-one-quarter ">
-    <form action="halaman2.php" method="POST">
+    <form action="" method="POST">
         <h1 class="title">Silahkan Login</h1>
         <div class="field">
             <p class="control has-icons-left">        
@@ -41,4 +41,19 @@
 
 </body>
 </html>
+
+<?php  
+   if(isset($_POST['pwd'])){
+    $user = $_POST['nim'];
+    $pwd = $_POST['pwd'];
+    if($user == "admin" && $pwd == "1"){
+        session_start();
+        $_SESSION['nama'] = $user;
+        header("Location: menu.php");
+       }
+       else{
+        header("Location: index.php");
+       }
+   }
+?>  
 
