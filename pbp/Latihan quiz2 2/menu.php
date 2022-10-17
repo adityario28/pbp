@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +20,7 @@ session_start();
     <br><br><br><br><br><br>
     <center>
         <div class="column is-two-thirds mt-6 main">
-            <form action="hasil.php" method="post">
+            <form action="" method="post">
             <div class="columns ">
             <h1 class="column is-10 title has-text-left">Selamat Datang, <?php echo $_SESSION["nama"]?></h1>
             <div class="column is-3 ">
@@ -38,43 +40,48 @@ session_start();
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="">
+                        <tr>
                             <th>1</th>
                             <td>A001</td>
                             <td>Pemrograman Web</td>
-                            <td><input type="checkbox" name="cek1" value="cek1" id=""></td>
+                            <td><input type="checkbox" name="cek[]" value="matkul1" id=""></td>
                         </tr>
                         <tr>
                             <th>2</th>
                             <td>A002</td>
                             <td>Pemrograman Service</td>
-                            <td><input type="checkbox" name="cek2" value="cek2" id=""></td>
+                            <td><input type="checkbox" name="cek[]" value="matkul2" id=""></td>
                         </tr>
                         <tr>
                             <th>3</th>
                             <td>A003</td>
                             <td>Desain Interface</td>
-                            <td><input type="checkbox" name="cek3" value="cek3" id=""></td>
+                            <td><input type="checkbox" name="cek[]" value="matkul3" id=""></td>
                         </tr>
                         <tr>
                             <th>4</th>
                             <td>A004</td>
                             <td>Manajemen Database</td>
-                            <td><input type="checkbox" name="cek4" value="cek4" id=""></td>
+                            <td><input type="checkbox" name="cek[]" value="matkul4" id=""></td>
                         </tr>
                     </tbody>
                 </table>
                 
                 <div class="is-flex">
-                <input class=" button is-primary px-6"type="submit" value="SUBMIT">
+                <input class=" button is-primary px-6"type="submit" name="submit" value="SUBMIT">
                 </div>
                 
                 
             </form>
         </div>
-        
     </center>
 </body>
 </html>
 
 
+<?php
+if(isset($_POST['cek'])){
+    $_SESSION['pilihan'] = $_POST['cek'];
+    header("Location: tes.php");
+}
+?>
