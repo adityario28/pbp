@@ -26,7 +26,6 @@ session_start();
                     <a href="index.php" style="text-decoration:none; color:white;">Logout</a>
                 </button>
             </div>
-            
             </div>
             <p class="title is-5 has-text-left mb-1">Berikut adalah mata kuliah yang Anda pilih : </p>
                 <table class="table is-hoverable is-fullwidth ">
@@ -35,34 +34,22 @@ session_start();
                             <th ">No.</th>
                             <th><abbr title="Kode Mata Kuliah">Kode</abbr></th>
                             <th><abbr title="Nama Mata Kuliah">Mata Kuliah</abbr></th>
-                            <th><abbr title="Pilih Mata Kuliah">Pilih</abbr></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="">
-                            <th>1</th>
-                            <td>A001</td>
-                            <td>Pemrograman Web</td>
-                            <td><input type="checkbox" name="cek1" value="cek1" id=""></td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>A002</td>
-                            <td>Pemrograman Service</td>
-                            <td><input type="checkbox" name="cek2" value="cek2" id=""></td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>A003</td>
-                            <td>Desain Interface</td>
-                            <td><input type="checkbox" name="cek3" value="cek3" id=""></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>A004</td>
-                            <td>Manajemen Database</td>
-                            <td><input type="checkbox" name="cek4" value="cek4" id=""></td>
-                        </tr>
+                    <?php
+                        $num = 1;
+                        foreach(['cek1', 'cek2', 'cek3', 'cek4'] as $pilihan){
+                            $_SESSION[$pilihan] = (isset($_POST[$pilihan])) ? $_POST[$pilihan] : "";
+                            echo '<tr>
+                            <th>'.$num.'</th>
+                            <td>'.$_SESSION[$pilihan].'<td>
+                            </tr>';
+                            $num++;
+                        }
+                    ?>
+                        
+                    
                     </tbody>
                 </table>
                 
@@ -77,6 +64,37 @@ session_start();
     </center>
 </body>
 </html>
+
+<?php
+        
+        $num = 1;
+        echo '<center><div class="column is-two-thirds mt-6 ">
+        <table class="table is-hoverable is-fullwidth">
+        <thead>
+            <tr class="is-selected">
+                <th>No.</th>
+                <th><abbr title="Kode Mata Kuliah">Kode</abbr></th>
+                <th><abbr title="Nama Mata Kuliah">Mata Kuliah</abbr></th>"
+            </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+        </table>
+        </div>
+        </center>';
+        foreach(['cek1', 'cek2', 'cek3', 'cek4'] as $matkul){
+            $_SESSION[$matkul] = (isset($_POST[$matkul])) ? $_POST[$matkul] : "";
+        
+        }
+    
+        echo "<pre>";
+        print_r($_SESSION);
+        echo "</pre>";
+
+        
+?>
 
 <?php
     
