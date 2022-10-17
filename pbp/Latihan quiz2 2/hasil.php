@@ -40,13 +40,44 @@ session_start();
                     <?php
                         $num = 1;
                         foreach(['cek1', 'cek2', 'cek3', 'cek4'] as $pilihan){
-                            $_SESSION[$pilihan] = (isset($_POST[$pilihan])) ? $_POST[$pilihan] : "";
-                            echo '<tr>
-                            <th>'.$num.'</th>
-                            <td>'.$_SESSION[$pilihan].'<td>
-                            </tr>';
+                            $_SESSION[$pilihan[$num]] = (isset($_POST[$pilihan])) ? $_POST[$pilihan] : "";
+                            echo $_SESSION[$pilihan[$num]];
+                            // if(isset($_SESSION[$pilihan[]])){
+                            //      echo '<tr>
+                            //      <th>1</th>
+                            //      <td>A001<td>
+                            //      <td>Pemrograman Web<td>
+                            //      </tr>';
+                            // }
+                            // }
+                            // if(isset($_SESSION[$pilihan][1])){
+                            //     echo '<tr>
+                            //     <th>2</th>
+                            //     <td>A002<td>
+                            //     <td>Pemrograman Service<td>
+                            //     </tr>';
+                            // }
+                            // if(isset($_SESSION[$pilihan][2])){
+                            //     echo '<tr>
+                            //     <th>3</th>
+                            //     <td>A003<td>
+                            //     <td>Desain Interface<td>
+                            //     </tr>';
+                            // }
+                            // if(isset($_SESSION[$pilihan][3])){
+                            //     echo '<tr>
+                            //     <th>4</th>
+                            //     <td>A004<td>
+                            //     <td>Manajemen Database<td>
+                            //     </tr>';
+                            // }
+                            
                             $num++;
                         }
+
+                        echo "<pre>";
+                        print_r($_SESSION);
+                        echo "</pre>";
                     ?>
                         
                     
@@ -92,12 +123,5 @@ session_start();
         echo "<pre>";
         print_r($_SESSION);
         echo "</pre>";
-
-        
 ?>
 
-<?php
-    
-    
-
-?>

@@ -43,7 +43,7 @@
 </html>
 
 <?php  
-   if(isset($_POST['pwd'])){
+   if(isset($_POST['pwd']) || isset($_POST['nim'])){
     $user = $_POST['nim'];
     $pwd = $_POST['pwd'];
     if($user == "admin" && $pwd == "1"){
