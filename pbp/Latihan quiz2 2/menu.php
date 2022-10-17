@@ -44,25 +44,25 @@ session_start();
                             <th>1</th>
                             <td>A001</td>
                             <td>Pemrograman Web</td>
-                            <td><input type="checkbox" name="cek[]" value="matkul1" id=""></td>
+                            <td><input type="checkbox" name="cek[]" value="0" id=""></td>
                         </tr>
                         <tr>
                             <th>2</th>
                             <td>A002</td>
                             <td>Pemrograman Service</td>
-                            <td><input type="checkbox" name="cek[]" value="matkul2" id=""></td>
+                            <td><input type="checkbox" name="cek[]" value="1" id=""></td>
                         </tr>
                         <tr>
                             <th>3</th>
                             <td>A003</td>
                             <td>Desain Interface</td>
-                            <td><input type="checkbox" name="cek[]" value="matkul3" id=""></td>
+                            <td><input type="checkbox" name="cek[]" value="2" id=""></td>
                         </tr>
                         <tr>
                             <th>4</th>
                             <td>A004</td>
                             <td>Manajemen Database</td>
-                            <td><input type="checkbox" name="cek[]" value="matkul4" id=""></td>
+                            <td><input type="checkbox" name="cek[]" value="3" id=""></td>
                         </tr>
                     </tbody>
                 </table>
