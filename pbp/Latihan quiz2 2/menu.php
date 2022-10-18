@@ -24,9 +24,7 @@ session_start();
             <div class="columns ">
             <h1 class="column is-10 title has-text-left">Selamat Datang, <?php echo $_SESSION["nama"]?></h1>
             <div class="column is-3 ">
-                <button class="button is-danger px-4">
-                    <a href="index.php" style="text-decoration:none; color:white;">Logout</a>
-                </button>
+                <input class="button is-danger px-4" type="submit" value="Logout" name="logout">
             </div>
             </div>
             <p class="title is-5 has-text-left mb-1">Silahkan pilih mata kuliah : </p>
@@ -67,8 +65,9 @@ session_start();
                     </tbody>
                 </table>
                 
-                <div class="is-flex">
-                <input class=" button is-primary px-6"type="submit" name="submit" value="SUBMIT">
+                <div class="is-flex columns">
+                <input class="column button is-2 is-primary  has-text-weight-semibold ml-3 is-size-5" type="submit" name="submit" value="SUBMIT">
+                <input class="column button is-2 is-warning ml-5 has-text-weight-semibold is-size-5 has-text-danger" type="submit" name="clear" value="CLEAR">
                 </div>
                 
                 
@@ -83,5 +82,14 @@ session_start();
 if(isset($_POST['cek'])){
     $_SESSION['pilihan'] = $_POST['cek'];
     header("Location: tes.php");
+}
+if(isset($_POST['logout'])){
+    session_destroy();
+    header("Location: index.php");
+    
+}
+if(isset($_POST['clear'])){
+    unset($_SESSION['pilihan']);
+    header("Location: menu.php");
 }
 ?>
