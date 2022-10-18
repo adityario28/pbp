@@ -33,7 +33,7 @@
                         <i class="mdi mdi-key"></i>
                     </span>
             </p>
-        <input class="button is-primary mt-5 px-6 " type="submit" value="MASUK">        
+        <input class="button is-primary mt-5 px-6 " type="submit" value="MASUK" name="login">        
         </div>        
     </form>
     </div>
@@ -46,7 +46,7 @@
    if(isset($_POST['pwd']) || isset($_POST['nim'])){
     $user = $_POST['nim'];
     $pwd = $_POST['pwd'];
-    if($user == "admin" && $pwd == "1"){
+    if($user == "ryo" && $pwd == "123"){
         session_start();
         $_SESSION['nama'] = $user;
         header("Location: menu.php");
@@ -54,6 +54,12 @@
        else{
         header("Location: index.php");
        }
+   }
+
+   if(isset($_POST['login'])){
+    if(isset($_SESSION['pilihan'])){
+        header("Location: tes.php");
+    }
    }
 ?>  
 

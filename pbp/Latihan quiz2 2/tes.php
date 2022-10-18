@@ -40,9 +40,10 @@
             <div class="columns ">
             <h1 class="column is-10 title has-text-left">Selamat datang, <?php echo $_SESSION["nama"]?></h1>
             <div class="column is-3 ">
-                <button class="button is-danger px-4">
+            <input class="button is-danger px-4 is-hoverable" type="submit" value="Logout" name="logout">
+                <!-- <button class="button is-danger px-4">
                     <a href="index.php" style="text-decoration:none; color:white;">Logout</a>
-                </button>
+                </button> -->
             </div>
             </div>
             <p class="title is-5 has-text-left mb-1">Berikut adalah mata kuliah yang Anda pilih : </p>
@@ -57,6 +58,7 @@
                     <tbody>
                     <?php
                             $num = 1;
+                            if(is_array($_SESSION['pilihan']) || is_object($_SESSION['pilihan'])){
                             foreach($_SESSION['pilihan'] as $hasil){
                             echo  '<tr>
                                   <th>'.$num.'</th>
@@ -64,9 +66,11 @@
                                   <td>'.$list[$hasil]["nama"].'</td>
                                   </tr>
                                   ';
+                            $num++;
+                            }
                                 // echo ''$list[$hasil]["kode"]."<br>";
                                 // echo $list[$hasil]["nama"]."<br>";    
-                            $num++;
+                            
                           }
                     ?>
                         
@@ -74,8 +78,9 @@
                     </tbody>
                 </table>
 
-                <div class="is-flex">
-                <input class=" button is-primary px-6"type="submit" value="SELESAI">
+                <div class="is-flex columns">
+                <input class="column button is-2 is-primary has-text-weight-semibold ml-3 is-size-5 " type="submit" name="done" value="DONE">
+                <input class="column button is-2 is-warning ml-5 has-text-weight-semibold is-size-5 has-text-danger" type="submit" name="clear" value="CLEAR">
                 </div>
                 
                 
@@ -88,6 +93,20 @@
 </html>
 
 <?php
+if(isset($_POST['logout'])){
+    // session_destroy();
+    unset($_SESSION['nama']);
+    header("Location: index.php");
+}
+if(isset($_POST['done'])){
+    unset($_SESSION['nama']);
+    header("Location: index.php");
+}
+if(isset($_POST['clear'])){
+    unset($_SESSION['pilihan']);
+    header("Location: menu.php");
+}
+
     // $list = [
     //     [
     //         "kode" => "A001",
